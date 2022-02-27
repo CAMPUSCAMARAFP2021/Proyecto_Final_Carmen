@@ -2,14 +2,14 @@ import Card from 'react-bootstrap/Card';
 import Button from "./buttons";
 
 
-const Jewel = ({jewel, onDelete}) =>  
+const Material = ({material, onDelete}) =>  
     <Card style={{ width: '18rem' }}>
         <Card.Body>
-            <Card.Title>{jewel.name}</Card.Title>
-            <Card.Text>{jewel.size}</Card.Text>
-            <Card.Text>{jewel.description}</Card.Text>
+            <Card.Title>{material.oro}</Card.Title>
+            <Card.Text>{material.plata}</Card.Text>
+            <Card.Text>{material.oroblanco}</Card.Text>
             { <Button variant="primary" onClick={onDelete}>Eliminar</Button> }
         </Card.Body>
     </Card>
 
-export default Jewel;
+export default Material;

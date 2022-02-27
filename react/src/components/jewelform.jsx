@@ -8,13 +8,18 @@ const JewelForm = ({createJewel}) => {
     const [jewel, setJewel] = useState(
         {
             "name": "",
-            "description": ""
+            "talla": "",
+            "marerial": ""
         }
     );
 
     const setName = ({target}) => {
         const name = target.value;
         setJewel(lastValue => ({ ...lastValue, name }))
+    }
+    const setSize = ({target}) => {
+        const size = target.value;
+        setJewel(lastValue => ({ ...lastValue, size }))
     }
 
     const setdescription = ({ target }) => {
@@ -30,6 +35,7 @@ const JewelForm = ({createJewel}) => {
     return <>
         <form>
             <input type="text" name="name" onChange={setName} value={jewel.name}></input>
+            <input type="text" name="talla" onChange={setSize} value={jewel.size}></input>
             <input type="text" name="player" onChange={setdescription} value={jewel.description}></input>
             
             {/* <textarea onChange={setDescription} value={team.description}></textarea> */}

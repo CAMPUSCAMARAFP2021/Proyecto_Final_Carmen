@@ -33,12 +33,22 @@ const createJewels = async (jewel, jwt) => {
         .then(response => response.json());
 
 }
+const deleteJewels = async (metch, jwt) => {
+    const headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    headers.append("Authorization", jwt);
+    const requestOptions = {
+        method: 'DELETE', headers, redirect: 'follow'
+    };
+    return fetch("http://localhost:3000/jew" + metch._id, requestOptions)
+        .then(response => response.text());
+}
 export {
 
     getJewels ,
 
     createJewels,
 
-
+    deleteJewels,
 
 }

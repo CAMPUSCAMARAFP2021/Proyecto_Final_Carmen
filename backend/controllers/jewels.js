@@ -8,6 +8,12 @@ const createJewel = async(jewel) => {
 
 }
 
+const deleteJewels = async (jewel) => {     
+    const jewel = await Meet.findByIdAndDelete(jewel);
+    return false;
+
+}
+
 const getJewel = async () => {
 
      return await Jewel.find()
@@ -19,6 +25,8 @@ const getJewel = async () => {
 module.exports = {
 
     createJewel,
+
+    deleteJewels,
 
     getJewel
 
