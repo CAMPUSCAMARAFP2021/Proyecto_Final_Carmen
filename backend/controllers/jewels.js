@@ -2,14 +2,14 @@ const Jewel = require('../modules/jewels');
 
 
 
-const createJewel = async(jewel) => {
+const createJewel = async(jewelId) => {
 
-    return await Jewel.create(jewel);
+    return await Jewel.create(jewelId);
 
 }
 
-const deleteJewels = async (jewel) => {     
-    const jewel = await Meet.findByIdAndDelete(jewel);
+const deleteJewel = async (jewelId) => {     
+    const jewel = await Jewel.findByIdAndDelete(jewelId);
     return false;
 
 }
@@ -26,7 +26,7 @@ module.exports = {
 
     createJewel,
 
-    deleteJewels,
+    deleteJewel,
 
     getJewel
 

@@ -10,7 +10,7 @@ var cors = require('cors');
 
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var customerRouter = require('./routes/customer');
 var jewelsRouter = require('./routes/jewels');
 // var fieldsRouter = require('./routes/fields')
 
@@ -28,7 +28,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/customer', customerRouter);
 app.use('/jewels', jewelsRouter);
 
 
@@ -42,7 +42,7 @@ app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
+    
   // render the error page
   res.status(err.status || 500);
   res.render('error');

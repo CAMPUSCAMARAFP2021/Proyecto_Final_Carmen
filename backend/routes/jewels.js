@@ -31,15 +31,11 @@ router.post('/',async(req, res) => {
 
 
 
-// router.delete('/:teamId', async(req,res) => {
-
-//     const {teamId} = req.params;
-
-//     const result = await teamController.deleteTask(teamId);
-
-//     res.json(result);
-
-// });
+ router.delete('/:jewelId', async(req,res) => {
+   const {jewelId} = req.params;
+     const result = await JewelCrontroller.deleteJewel(jewelId);
+     res.json(result);
+ });
 
 
 

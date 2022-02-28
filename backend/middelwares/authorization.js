@@ -4,11 +4,11 @@ const jwt = require('jsonwebtoken');
 
 module.exports = async(req, res, next) => {
 
-    // const {authorization} = req.headers;
+    const {authorization} = req.headers;
 
-    // const {author} = jwt.verify(authorization, 'secreto');
+     const {customer} = jwt.verify(authorization, 'secret');
 
-    // req.author = author;
+     req.customer = customer;
 
     next();
 

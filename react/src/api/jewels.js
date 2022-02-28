@@ -33,14 +33,14 @@ const createJewels = async (jewel, jwt) => {
         .then(response => response.json());
 
 }
-const deleteJewels = async (metch, jwt) => {
+const deleteJewel = async (jewel, jwt) => {
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
     headers.append("Authorization", jwt);
     const requestOptions = {
         method: 'DELETE', headers, redirect: 'follow'
     };
-    return fetch("http://localhost:3000/jew" + metch._id, requestOptions)
+    return fetch("http://localhost:3000/jewels" + jewel._id, requestOptions)
         .then(response => response.text());
 }
 export {
@@ -49,6 +49,6 @@ export {
 
     createJewels,
 
-    deleteJewels,
+    deleteJewel
 
 }
