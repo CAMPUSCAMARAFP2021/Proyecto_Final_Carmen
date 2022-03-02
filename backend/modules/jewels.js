@@ -21,8 +21,8 @@ const schema = new Schema({
 
 
 
-const Jewel = model('Order', schema);
-const Jewel = model('Mateial', schema);
+const Jewel = model('Jewel', schema);
+
 
 
 

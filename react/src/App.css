@@ -15,7 +15,7 @@
 
 .App-header {
   text-align: center;
-  background-color: #282c34;
+  background-color: #2161e2;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -23,6 +23,12 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  
+}
+
+.App-headertitle{
+  text-align: center;
+  color: #2161e2;
   
 }
 
@@ -38,4 +44,5 @@
     transform: rotate(360deg);
   }
 }
+
 

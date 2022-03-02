@@ -1,0 +1,50 @@
+import Customer from "./customer"
+import CustomerForm from './customerForm';
+import { useState, useEffect } from 'react';
+import {getCustomers,  createCustomer } from "../../api/customer";
+
+
+
+
+const CustomerList = ({jwt}) => {
+    const [customers, setCustomers] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+    
+
+    const doCreateCustomer = (customer, jwt) => {
+        setIsLoading(true);
+        createCustomer(customer)
+            .then((newCustomer) => {
+                 setCustomers((prevState) => [...prevState, newCustomer]);
+                 setIsLoading(false);       
+            }); 
+    };
+    
+    const loadData = () => {
+        setIsLoading(true);
+        getCustomers(jwt).then((customers) => {    
+            setIsLoading(false);
+            setCustomers(customers);
+        }).catch(() => setIsLoading(false));
+    }
+    useEffect(loadData,[]); 
+    
+   
+    
+    return <>
+        {isLoading ? 
+            <p>cargando...</p> : 
+            customers.map(customer => 
+                <Customer 
+                    key={customer._id} 
+                    customer={customer} 
+                   
+                />)}
+        <CustomerForm createCustomer={doCreateCustomer}></CustomerForm>
+
+    </>
+        
+}
+    
+
+export default CustomerList;

@@ -4,14 +4,14 @@ var router = express.Router();
 
 
 
-var OrderController = require('../controllers/order')
+var orderController = require('../controllers/order')
 
 
 
 
 router.get('/', async function(req, res) {
-
-    const order = await OrderController.getOrder();
+    const {customer} = req;
+    const order = await orderController.getOrdersbycustomer(customer);
 
     res.json(order);
 
@@ -20,10 +20,10 @@ router.get('/', async function(req, res) {
 
 
 router.post('/',async(req, res) => {
-
+    const {customer} = req;
     const {order} = req.body;
 
-    const result =  await OrderController.createOrder(order);
+    const result =  await orderController.createOrderbycustomer(order, customer);
 
     res.json(result);
 
@@ -33,7 +33,7 @@ router.post('/',async(req, res) => {
 
  router.delete('/:orderId', async(req,res) => {
    const {orderId} = req.params;
-     const result = await OrderCrontroller.deleteOrder(orderId);
+     const result = await orderCrontroller.deleteOrder(orderId);
      res.json(result);
  });
 

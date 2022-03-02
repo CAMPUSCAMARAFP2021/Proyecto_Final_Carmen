@@ -1,37 +1,37 @@
 import Order from "./order"
 import OrderForm from './orderform';
-
+import Button from "./buttons";
 import { useState, useEffect } from 'react';
-import {getOrder,  createOrder,  deleteOrder } from "../api/order";
+import {getOrders,  createOrderbycustomer,  deleteOrder } from "../api/order";
 
 
 
-const OrderList = ({jwt}) => {
+const OrderList = ({jwt, customer}) => {
     const [order, setOrder] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     
 
-    const doCreateOrder = (order, jwt) => {
+    const doCreateOrder = (order) => {
         setIsLoading(true);
-        createOrder(order)
+        createOrderbycustomer(order, jwt , customer)
             .then((newOrder) => {
                  setOrder((prevState) => [...prevState, newOrder]);
                  setIsLoading(false);       
             }); 
     };
-    const doDeleteOrder = (order, jwt) => {
+    const doDeleteOrder = (order) => {
         setIsLoading(true);
-        deleteOrder(order)
+        deleteOrder(order , jwt , customer)
         .then(loadData);
     };
     const loadData = () => {
         setIsLoading(true);
-        getOrder(jwt).then((order) => {    
+        getOrders(jwt,customer).then((order) => {    
             setIsLoading(false);
             setOrder(order);
         }).catch(() => setIsLoading(false));
     }
-    useEffect(loadData,[]); 
+    useEffect(loadData,[customer]); 
     
    
     
@@ -44,7 +44,8 @@ const OrderList = ({jwt}) => {
                     order={order} 
                     onDelete={() => doDeleteOrder(order)}
                 />)}
-        <orderform createOrder={doCreateOrder}></orderform>
+        <OrderForm createOrderbycustomer={doCreateOrder}></OrderForm>
+
     </>
         
 }

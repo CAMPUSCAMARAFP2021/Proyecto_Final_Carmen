@@ -2,9 +2,9 @@ const Order = require('../modules/order');
 
 
 
-const createOrder = async(orderId) => {
-
-    return await Order.create(orderId);
+const createOrderbycustomer = async(order , customer) => {
+order.customer= customer
+    return await Order.create(order);
 
 }
 
@@ -14,20 +14,27 @@ const deleteOrder = async (orderId) => {
 
 }
 
-const getOrder = async () => {
+const getOrders = async () => {
 
      return await Order.find()
 
 }
 
+const getOrdersbycustomer = async (customer) => {
+
+    return await Order.find({customer})
+
+}
 
 
 module.exports = {
 
-    createOrder,
+    createOrderbycustomer,
 
     deleteOrder,
 
-    getOrder
+    getOrders,
+
+    getOrdersbycustomer
 
 }

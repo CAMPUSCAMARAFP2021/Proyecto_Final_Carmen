@@ -10,7 +10,7 @@ const schema = new Schema({
     ]
 })
 
-const Material = model('Jewel', schema);
+const Material = model('Material', schema);
 
 
 module.exports = Material;

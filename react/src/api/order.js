@@ -1,11 +1,11 @@
-const getOrder = async (jwt) => {
+const getOrders = async (jwt, customer) => {
     const headers = new Headers();
     headers.append("Authorization", jwt);
-    return fetch("http://localhost:3000/order", {headers})
+    return fetch(`http://localhost:3000/customers/${customer._id}/orders`, {headers})
     .then(res => res.json())
 }
 
-const createOrder = async (order, jwt) => {
+const createOrderbycustomer = async (order, jwt, customer) => {
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
     headers.append("Authorization", jwt);
@@ -13,23 +13,23 @@ const createOrder = async (order, jwt) => {
     const requestOptions = {
         method: 'POST', headers, body,redirect: 'follow'
     };
-    return fetch("http://localhost:3000/order", requestOptions)
+    return fetch(`http://localhost:3000/customers/${customer._id}/orders`, requestOptions)
         .then(response => response.json());
 }
 
-const deleteOrder = async (order, jwt) => {
+const deleteOrder = async (order, jwt , customer) => {
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
     headers.append("Authorization", jwt);
     const requestOptions = {
         method: 'DELETE', headers, redirect: 'follow'
     };
-    return fetch("http://localhost:3000/order/" + order._id, requestOptions)
+    return fetch(`http://localhost:3000/customers/${customer._id}/orders/${order._id}` , requestOptions)
         .then(response => response.text());
 }
 
 export {
-    getOrder ,
-    createOrder,
+    getOrders ,
+    createOrderbycustomer,
     deleteOrder,
 }

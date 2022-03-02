@@ -1,4 +1,4 @@
-const Customer = require('../models/customer');
+const Customer = require('../modules/customer');
 const jwt = require('jsonwebtoken');
 
 
@@ -18,7 +18,9 @@ const buildJWT = (customer) => {
 
 const login = async (name,password) => {
     const customer = await Customer.findOne({name});
-    
+      if(!customer) throw new Error('usuario no encontrado');
+     console.log('=============>', customer)
+    const passwordEncriptada = encriptarPassword(password);
     return buildJWT(customer);
     
 }
@@ -29,7 +31,7 @@ const createCustomer = async(customer) => {
     return await Customer.create(customer);
 }
 
-const getCustomer = async() => {
+const getCustomers = async() => {
     return await Customer.find();
 }
 
@@ -45,7 +47,7 @@ const deleteCustomer = async(customerId)=> {
 module.exports = {
     login,
     createCustomer,
-    getCustomer,
+    getCustomers,
     getCustomer,
     deleteCustomer,
 };

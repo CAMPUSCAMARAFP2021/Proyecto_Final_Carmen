@@ -1,7 +1,7 @@
 var router = require('express').Router();
 var customerController = require('../controllers/customer');
 
-var orderRouter = require('./order');
+var OrderRouter = require('./order');
 
 router.post('/',async(req, res) => {
     const {customer} = req.body;
@@ -17,7 +17,7 @@ router.post('/login',async(req, res) => {
 });
 
 router.get('/', async(req, res) => {
-    const customer = await customerController.getCustomer();
+    const customer = await customerController.getCustomers();
     res.json(customer);
 })
 
@@ -27,11 +27,11 @@ router.get('/:customerId', async(req, res) => {
     res.json(customer);
 })
 
-router.use('/:customerId/order', async (req, res, next) => {
+router.use('/:customerId/orders', async (req, res, next) => {
     const {customerId} = req.params;
     req.customer = await customerController.getCustomer(customerId);
     next();
-} ,orderRouter);
+} ,OrderRouter);
 
 
 router.delete('/:customerId', async(req,res) => {

@@ -10,8 +10,9 @@ var cors = require('cors');
 
 
 var indexRouter = require('./routes/index');
-var customerRouter = require('./routes/customer');
+var customerRouter = require('./routes/customers');
 var jewelsRouter = require('./routes/jewels');
+var orderRouter = require('./routes/order');
 // var fieldsRouter = require('./routes/fields')
 
 var app = express();
@@ -28,9 +29,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/customer', customerRouter);
+app.use('/customers', customerRouter);
 app.use('/jewels', jewelsRouter);
-
+app.use('/orders', orderRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
