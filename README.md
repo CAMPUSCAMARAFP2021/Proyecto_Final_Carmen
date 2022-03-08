@@ -68,7 +68,7 @@ Los siguientes diagramas son la organización de carpetas que tiene este proyect
 
 8. En el directorio Project_Final_Carmen, ejecute el comando npm install en el directorio raíz, esto instalará las dependencias, para que el proyecto pueda ejecutarse, es importante tenerlas, ya que sin ellas el proyecto no funcionará correctamente.
 
-9. Finalmente iniciaremos el proyecto usando la terminal, vamos al directorio ProyectoDavidApi y ejecutamos el siguiente comando docker-compose up
+9. Finalmente iniciaremos el proyecto usando la terminal, vamos al directorio Proyecto_Final_Carmen y ejecutamos el siguiente comando docker-compose up
 
 10. Si todo va bien, la terminal muestra un mensaje de que la API está funcionando en el puerto 4200 y la base de datos está conectada.
 
@@ -85,9 +85,6 @@ _Explica como ejecutar las pruebas automatizadas para este sistema_
 * **David Pestana** - *Desarrollo del proyecto* - [David Pestana](https://github.com/davidpestana)
 * **Lucia** - *Ayuda en el backend* - [lucia](https://github.com/luciaCalabrese)
 
-## Licencia 📄
-
-Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo [LICENSE.md](LICENSE.md) para detalles
 
 ## Expresiones de Gratitud 🎁
 
