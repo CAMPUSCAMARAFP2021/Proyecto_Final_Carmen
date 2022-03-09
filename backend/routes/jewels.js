@@ -10,8 +10,8 @@ var JewelController = require('../controllers/jewels')
 
 
 router.get('/', async function(req, res) {
-
-    const jewels = await JewelController.getJewel();
+const order=req.order
+    const jewels = await JewelController.getJewelsbyorder(order);
 
     res.json(jewels);
 
@@ -20,9 +20,10 @@ router.get('/', async function(req, res) {
 
 
 router.post('/',async(req, res) => {
-
+    const order=req.order
+    
     const {jewel} = req.body;
-
+jewel.order=order
     const result =  await JewelController.createJewel(jewel);
 
     res.json(result);

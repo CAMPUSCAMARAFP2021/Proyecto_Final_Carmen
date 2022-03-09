@@ -31,7 +31,7 @@ const JewelForm = ({createJewel}) => {
 
     return <>
     <br></br>
-        <form>
+        <Form>
             <input type="text" name="name" onChange={setName} value={jewel.name}></input>
             <br></br>
             <br></br>
@@ -42,9 +42,9 @@ const JewelForm = ({createJewel}) => {
             <br></br>
             {/* <textarea onChange={setDescription} value={team.description}></textarea> */}
             {/* <DatePicker selected={task.dueDate} onChange={setDate} ></DatePicker> */}
-        </form>
+        </Form>
         <br></br>
-        <Button name="enviar" onClick={() => createJewel(jewel)}>Agregar joya</Button>
+        <Button name="enviar" variant="success" onClick={() => createJewel(jewel)}>Agregar joya</Button>
         <div>
             {JSON.stringify(jewel)}
         </div>

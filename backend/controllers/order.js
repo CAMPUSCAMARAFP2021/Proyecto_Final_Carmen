@@ -22,6 +22,12 @@ const getOrders = async () => {
 
 }
 
+
+const getOrder = async (orderId) => {
+
+    return await Order.findById(orderId);
+
+}
 const getOrdersbycustomer = async (customer) => {
 
     return await Order.find({customer})
@@ -37,6 +43,8 @@ module.exports = {
 
     getOrders,
 
-    getOrdersbycustomer
+    getOrdersbycustomer,
+
+    getOrder
 
 }

@@ -1,7 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CustomerList from './components/customer/customerList';
-import OrderList from './components/orderlist';
+
 import {Container} from 'react-bootstrap';
 
 
@@ -38,7 +38,7 @@ const App = () =>{
        <hr></hr>
         <br></br>
       
-      <OrderList />
+    
          {/* <LogOutButton onLogOut={() => setJwt(false)}></LogOutButton> */}
          
          <CustomerList jwt={jwt}/>

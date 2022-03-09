@@ -1,10 +1,10 @@
-const getJewels = async (jwt) => {
+const getJewels = async (jwt, order) => {
 
     const headers = new Headers();
 
     headers.append("Authorization", jwt);
 
-    return fetch("http://localhost:3000/jewels", {headers})
+    return fetch(`http://localhost:3000/orders/${order._id}/jewels`, {headers})
 
     .then(res => res.json())
 
@@ -12,8 +12,9 @@ const getJewels = async (jwt) => {
 
 
 
-const createJewels = async (jewel, jwt) => {
+const createJewels = async (jewel, jwt, order) => {
 
+    console.log(order)
     const headers = new Headers();
 
     headers.append("Content-Type", "application/json");
@@ -28,7 +29,7 @@ const createJewels = async (jewel, jwt) => {
 
     };
 
-    return fetch("http://localhost:3000/jewels", requestOptions)
+    return fetch(`http://localhost:3000/orders/${order._id}/jewels`, requestOptions)
 
         .then(response => response.json());
 

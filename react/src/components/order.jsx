@@ -1,4 +1,5 @@
-import { ButtonToolbar, Button , Card, ButtonGroup ,  Stack} from 'react-bootstrap';
+import {  Button , Card} from 'react-bootstrap';
+import JewelList from './jewel/jewellist';
 
 
 
@@ -10,20 +11,17 @@ const styles = {
     }
   }
 
-const Order = ({order, onDelete, addJewel}) =>  
+const Order = ({order, jwt, onDelete, addJewel}) =>  
     <Card style={styles.card}>
         <Card.Body style={{ alignItems : "center", backgroundColor:"#DCF7E3" }}>
             <Card.Title>{order.title}</Card.Title><br></br>
-            <ButtonToolbar>
-            <Stack direction="horizontal" gap={3}>
-            <ButtonGroup aria-label="Third group">
+            
+
             <Button variant="success" onClick={onDelete}>Eliminar</Button>
-            </ButtonGroup>
-            <ButtonGroup aria-label="Third group">
-            <Button variant="outline-success" onClick={addJewel}>Añadir Joya</Button>
-            </ButtonGroup>
-            </Stack>
-            </ButtonToolbar>
+            
+            
+            
+            <JewelList order={order} jwt={jwt}></JewelList>
         </Card.Body>
     </Card>
    

@@ -3,36 +3,36 @@ import JewelForm from './jewelform';
 
 
 import { useState, useEffect } from 'react';
-import { getJewels, createJewels , deleteJewel} from "../api/jewels";
+import { getJewels, createJewels , deleteJewel} from "../../api/jewels";
 
 
 
-const JewelList = ({jwt}) => {
+const JewelList = ({jwt, order}) => {
     const [jewels, setJewels] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
     const doCreateJewel = (jewel) => {
         setIsLoading(true);
-        createJewels(jewel, jwt)
+        createJewels(jewel, jwt, order)
             .then((newJewel) => {
-                 setOrders((prevState) => [...prevState, newJewel]);
+                 setJewels((prevState) => [...prevState, newJewel]);
                  setIsLoading(false);       
             }); 
     };
    
-    const doDeleteJewel = (jewel, jwt) => {
+    const doDeleteJewel = (jewel) => {
          setIsLoading(true);
-         deleteJewel(jewel)
+         deleteJewel(jewel, jwt)
          .then(loadData);
      };
     const loadData = () => {
         setIsLoading(true);
-        getJewels(jwt).then((jewels) => {    
+        getJewels(jwt,order).then((jewels) => {    
             setJewels(jewels);
             setIsLoading(true)
         }).catch(() => setIsLoading(false));
     }
-    useEffect(loadData,[]); 
+    useEffect(loadData,[order]); 
 
 
 
@@ -44,7 +44,6 @@ const JewelList = ({jwt}) => {
                     key={jewel._id} 
                     jewel={jewel} 
                      onDelete={() => doDeleteJewel(jewel)}
-                     onCreate={() => doCreateJewel(jewel)}
                 />)}
         <JewelForm createJewel={doCreateJewel}></JewelForm>
     </>

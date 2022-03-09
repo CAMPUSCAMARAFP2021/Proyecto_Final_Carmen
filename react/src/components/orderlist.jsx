@@ -1,17 +1,16 @@
 import Order from "./order"
 import OrderForm from './orderform';
-import JewelForm from "./jewel/jewelform";
 import { useState, useEffect } from 'react';
 import {getOrders,  createOrderbycustomer,  deleteOrder } from "../api/order";
-import {createJewels} from "../api/jewels"
+
 
 
 
 const OrderList = ({jwt, customer}) => {
     const [orders, setOrders] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [showJewelForm , setShowJewelForm]= useState(false);
-    const [Jewels , setJewels]= useState(false);
+    // const [showJewelForm , setShowJewelForm]= useState(false);
+    // const [Jewels , setJewels]= useState(false);
     
 
     const doCreateOrder = (order) => {
@@ -34,23 +33,24 @@ const OrderList = ({jwt, customer}) => {
             setOrders(orders);
         }).catch(() => setIsLoading(false));
     }
-    const doCreateJewel = (jewel) => {
-        setIsLoading(true);
-        createJewels(jewel)
-            .then((newJewel) => {
-                 setJewels((prevState) => [...prevState, newJewel]);
-                 setIsLoading(false);       
-            }); 
-    };
+    // const doCreateJewel = (jewel) => {
+    //     setIsLoading(true);
+    //     createJewels(jewel)
+    //         .then((newJewel) => {
+    //              setJewels((prevState) => [...prevState, newJewel]);
+    //              setIsLoading(false);       
+    //         }); 
+    // };
 
-    const doAddJewel = (order) =>{
-        setShowJewelForm(order)
-}
+//     const doAddJewel = (order) =>{
+//         setShowJewelForm(order)
+// }
 
 
     useEffect(loadData,[customer]); 
     
     return <>
+    <p>comienza order list de customer</p>
         {isLoading ? 
             <p>cargando...</p> : 
 
@@ -61,11 +61,12 @@ const OrderList = ({jwt, customer}) => {
                     key={order._id} 
                     order={order} 
                     onDelete={() => doDeleteOrder(order)}
-                    addJewel={()=> doAddJewel(order)}
+                    jwt={jwt}
+                    // addJewel={()=> doAddJewel(order)}
                 />)
-                : <p>No hay ordenes</p>
+                : <p>No hay ordenes!!!</p>
             }
-       {showJewelForm ? <JewelForm createJewel={doCreateJewel}></JewelForm>  : <OrderForm createOrderbycustomer={doCreateOrder}></OrderForm>}
+        <OrderForm createOrderbycustomer={doCreateOrder}></OrderForm>
 
     </>
         

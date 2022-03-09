@@ -5,9 +5,14 @@ var router = express.Router();
 
 
 var orderController = require('../controllers/order')
+var JewelRouter = require('./jewels');
 
 
-
+router.get('/:orderId', async(req, res) => {
+    const {orderId} = req.params;
+    const order = await orderController.getOrder(orderId);
+    res.json(order);
+})
 
 router.get('/', async function(req, res) {
     const {customer} = req;
@@ -28,6 +33,12 @@ router.post('/',async(req, res) => {
     res.json(result);
 
 });
+
+router.use('/:orderid/jewels', async (req, res, next) => {
+    const {orderid} = req.params;
+    req.order = await orderController.getOrder(orderid);
+    next();
+} ,JewelRouter);
 
 
 

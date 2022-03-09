@@ -2,9 +2,9 @@ const Jewel = require('../modules/jewels');
 
 
 
-const createJewel = async(jewelId) => {
+const createJewel = async(jewel) => {
 
-    return await Jewel.create(jewelId);
+    return await Jewel.create(jewel);
 
 }
 
@@ -19,6 +19,12 @@ const getJewel = async () => {
      return await Jewel.find()
 
 }
+const getJewelsbyorder = async (order) => {
+    console.log(order)
+
+    return await Jewel.find({order})
+
+}
 
 
 
@@ -28,6 +34,8 @@ module.exports = {
 
     deleteJewel,
 
-    getJewel
+    getJewel, 
+
+    getJewelsbyorder
 
 }
