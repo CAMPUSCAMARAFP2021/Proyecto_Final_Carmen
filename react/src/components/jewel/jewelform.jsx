@@ -30,21 +30,15 @@ const JewelForm = ({createJewel}) => {
     // }
 
     return <>
+    <br></br>
         <form>
             <input type="text" name="name" onChange={setName} value={jewel.name}></input>
-            <Form.Group  controlId="my_multiselect_field">
-            <Form.Label>My multiselect</Form.Label>
-            <Form.Control as="select" multiple value={"jewel"}>
-        <option value="field1">Field 1</option>
-        <option value="field2">Field 2</option>
-        <option value="field3">Field 3</option>
-      </Form.Control>
-    </Form.Group>
-
+           
+<br></br>
             {/* <textarea onChange={setDescription} value={team.description}></textarea> */}
             {/* <DatePicker selected={task.dueDate} onChange={setDate} ></DatePicker> */}
         </form>
-        <Button name="enviar" onClick={() => createJewel(jewel)}></Button>
+        <Button name="enviar" onClick={() => createJewel(jewel)}>Agregar joya</Button>
         <div>
             {JSON.stringify(jewel)}
         </div>

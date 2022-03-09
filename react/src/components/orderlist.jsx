@@ -1,7 +1,6 @@
 import Order from "./order"
 import OrderForm from './orderform';
 import JewelForm from "./jewel/jewelform";
-import Button from "./buttons";
 import { useState, useEffect } from 'react';
 import {getOrders,  createOrderbycustomer,  deleteOrder } from "../api/order";
 import {createJewels} from "../api/jewels"

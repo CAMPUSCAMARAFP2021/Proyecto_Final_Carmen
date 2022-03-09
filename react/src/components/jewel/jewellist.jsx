@@ -1,6 +1,6 @@
 import Jewel from "./jewel"
 import JewelForm from './jewelform';
-import Button from "./buttons";
+
 
 import { useState, useEffect } from 'react';
 import { getJewels, createJewels , deleteJewel} from "../api/jewels";

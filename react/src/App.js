@@ -18,6 +18,7 @@ const styles = {
   container:{
     textAlign : "center",
     position : "center",
+    
   },
 }
 
@@ -36,6 +37,7 @@ const App = () =>{
        <hr></hr>
         <br></br>
       
+      <OrderList />
          {/* <LogOutButton onLogOut={() => setJwt(false)}></LogOutButton> */}
          
          <CustomerList jwt={jwt}/>
