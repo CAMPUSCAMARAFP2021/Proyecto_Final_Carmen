@@ -74,14 +74,9 @@ Los siguientes diagramas son la organización de carpetas que tiene este proyect
 
 
 
-## Ejecutando las pruebas ⚙️
-
-_Explica como ejecutar las pruebas automatizadas para este sistema_
-
-
 ## Autores ✒️
 
-* **Carmen Marti ** - *Desarrollo del proyecto completo* - [Carmen Marti](https://github.com/carmen1213)
+* **Carmen Marti** - *Desarrollo del proyecto completo* - [Carmen Marti](https://github.com/carmen1213)
 * **David Pestana** - *Desarrollo del proyecto* - [David Pestana](https://github.com/davidpestana)
 * **Lucia** - *Ayuda en el backend* - [lucia](https://github.com/luciaCalabrese)
 
