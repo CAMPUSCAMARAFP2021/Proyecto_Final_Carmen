@@ -2,13 +2,10 @@ import { useState } from "react";
 import Button from './buttons';
 
 
-const OrderForm = ({createOrder}) => {
+const OrderForm = ({createOrderbycustomer}) => {
     const [order, setOrder] = useState(
         {
-            "title": "",
-            "jewels": [],
-           
-            
+            "title": "", 
         }
     );
 
@@ -22,6 +19,7 @@ const OrderForm = ({createOrder}) => {
         const jewel = target.value;
         setOrder( lastValue => ({...lastValue,  jewel}))
     }
+    
 
     
 
@@ -29,7 +27,7 @@ const OrderForm = ({createOrder}) => {
         <form>
             <input type="text" name="title" onChange={setTitle} value={order.title}></input>
         </form>
-        <Button name="enviar" onClick={() => createOrder(order)}></Button>
+        <Button name="enviar" onClick={() => createOrderbycustomer(order)}></Button>
         <div> 
             {JSON.stringify(order)}
         </div>

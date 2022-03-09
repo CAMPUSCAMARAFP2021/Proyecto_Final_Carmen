@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  align-items: center;
+  color: aquamarine;
+  background-color: #2161e2;
 }
 
 .App-logo {
@@ -23,13 +26,14 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+ 
   
 }
 
 .App-headertitle{
   text-align: center;
   color: #2161e2;
-  
+
 }
 
 .App-link {
@@ -44,5 +48,6 @@
     transform: rotate(360deg);
   }
 }
+
 
 

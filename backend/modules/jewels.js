@@ -1,6 +1,6 @@
 const {model, Schema} = require('mongoose');
 const Order = require('./order');
-const Material = require('./materials');
+
 
 
 
@@ -12,10 +12,7 @@ const schema = new Schema({
       type: Schema.Types.ObjectId,
       ref: 'Order',
     },
-    material:{
-    type: Schema.Types.ObjectId,
-    ref: 'Material',
-  },
+    materials:[String],
     description : String
   });
 

@@ -4,7 +4,7 @@ const schema = new Schema({
     name: String,
     subName: String,
     email: String,
-    order: [
+    orders: [
         {type: Schema.Types.ObjectId, ref:'Order'}
     ]
 })

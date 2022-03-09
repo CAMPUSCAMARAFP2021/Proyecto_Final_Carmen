@@ -1,6 +1,7 @@
 const {model, Schema} = require('mongoose');
 
 const schema = new Schema({
+    title: String,
     date: Schema.Types.String,
     jewels: [
         {type: Schema.Types.ObjectId, ref:'Jewel'}

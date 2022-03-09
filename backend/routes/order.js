@@ -31,9 +31,10 @@ router.post('/',async(req, res) => {
 
 
 
- router.delete('/:orderId', async(req,res) => {
-   const {orderId} = req.params;
-     const result = await orderCrontroller.deleteOrder(orderId);
+ router.delete('/:order', async(req,res) => {
+    const {customer} = req;
+    const {order} = req.params;
+     const result = await orderController.deleteOrder(order, customer);
      res.json(result);
  });
 

@@ -2,6 +2,7 @@ import Customer from "./customer"
 import CustomerForm from './customerForm';
 import { useState, useEffect } from 'react';
 import {getCustomers,  createCustomer } from "../../api/customer";
+import { Container } from "react-bootstrap";
 
 
 
@@ -34,14 +35,16 @@ const CustomerList = ({jwt}) => {
     return <>
         {isLoading ? 
             <p>cargando...</p> : 
-            customers.map(customer => 
+            <Container>
+            {customers.map(customer => 
                 <Customer 
                     key={customer._id} 
                     customer={customer} 
                    
                 />)}
+                 
         <CustomerForm createCustomer={doCreateCustomer}></CustomerForm>
-
+        </Container>}
     </>
         
 }

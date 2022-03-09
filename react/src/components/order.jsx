@@ -1,12 +1,29 @@
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import { ButtonToolbar, Button , Card, ButtonGroup } from 'react-bootstrap';
 
 
-const Order = ({order, onDelete}) =>  
-    <Card style={{ width: '18rem' }}>
-        <Card.Body>
-            <Card.Title>{order.title}</Card.Title>
+
+const styles = {
+    card:{
+        alignItems: "center",
+      
+    }
+  }
+ 
+
+
+const Order = ({order, onDelete, addJewel}) =>  
+    <Card style={styles.card}>
+        <Card.Body style={{ alignItems : "center" }}>
+            <Card.Title>{order.title}</Card.Title><br></br>
+            <ButtonToolbar>
+            <ButtonGroup aria-label="Third group">
             <Button variant="primary" onClick={onDelete}>Eliminar</Button>
+            </ButtonGroup>
+            <ButtonGroup aria-label="Third group">
+            <Button variant="outline-info" oonClick={jewelShow}>Añadir Joya</Button>
+            
+            </ButtonGroup>
+            </ButtonToolbar>
         </Card.Body>
     </Card>
 
