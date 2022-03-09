@@ -1,5 +1,5 @@
 import Card from 'react-bootstrap/Card';
-import Button from "./buttons";
+
 
 
 const Jewel = ({jewel}) =>  

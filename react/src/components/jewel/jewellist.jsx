@@ -11,7 +11,14 @@ const JewelList = ({jwt}) => {
     const [jewels, setJewels] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
-
+    const doCreateJewel = (jewel) => {
+        setIsLoading(true);
+        createJewels(jewel, jwt)
+            .then((newJewel) => {
+                 setOrders((prevState) => [...prevState, newJewel]);
+                 setIsLoading(false);       
+            }); 
+    };
    
     const doDeleteJewel = (jewel, jwt) => {
          setIsLoading(true);
@@ -37,6 +44,7 @@ const JewelList = ({jwt}) => {
                     key={jewel._id} 
                     jewel={jewel} 
                      onDelete={() => doDeleteJewel(jewel)}
+                     onCreate={() => doCreateJewel(jewel)}
                 />)}
         <JewelForm createJewel={doCreateJewel}></JewelForm>
     </>

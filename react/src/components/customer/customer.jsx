@@ -5,7 +5,7 @@ import OrderList from '../orderlist';
 const styles = {
     title:{
       textAlign : "center",
-      color : "#B84DEA",
+      color : "#006B46",
       fontSize: 30,
       
     },
@@ -15,12 +15,13 @@ const styles = {
         marginBottom: "10px" , /* Added */
         width: '50rem', 
         textAlign: "center",
+        
     }
   }
 
 const Customer = ({ customer}) =>  
     <Card style={styles.card}>
-        <Card.Body style={{ alignItems: "center"}}>
+        <Card.Body style={{ alignItems: "center", backgroundColor : "#DCF7E3"}}>
             <Card.Title style={styles.title}>{customer.name}</Card.Title>
             <Card.Text>{customer.subName}</Card.Text>
             <Card.Text>{customer.email}</Card.Text>

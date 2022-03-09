@@ -11,8 +11,9 @@ import { useState } from 'react';
 const styles = {
   headertitle:{
     textAlign : "center",
-    color : "#B84DEA",
+    color : "#F7BC8D",
     fontSize: 50,
+    fontFamily: "fantasy"
   },
 
   container:{

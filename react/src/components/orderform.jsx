@@ -27,8 +27,10 @@ const OrderForm = ({createOrderbycustomer}) => {
         <form>
             <input type="text" name="title" onChange={setTitle} value={order.title}></input>
         </form>
-        <Button name="enviar" onClick={() => createOrderbycustomer(order)}></Button>
+        <br></br>
+        <Button  name="Enviar"  onClick={() => createOrderbycustomer(order)}> Enviar </Button>
         <div> 
+
             {JSON.stringify(order)}
         </div>
     </>;

@@ -30,8 +30,9 @@ const CustomerForm = ({createCustomer}) => {
     const styles = {
         h1: {
         textAlign : "center",
-        color : "#B84DEA",
+        color : "#8FB0F4",
         fontSize: 50,
+        fontFamily: "initial"
         }
     }
 
